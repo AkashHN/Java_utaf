@@ -1,0 +1,13 @@
+{
+	"correctUserName": "demoUser@gmail.com",
+	"correctPassword": "demouser123",
+	"inValidUserName": "test@gmail.com",
+	"inValidPassword": "test123",
+	"searchItem": "Lenovo",
+	"notificationHeadingMsg":"Notifications",
+	"languageHeadingMsg":"Select the language available for your region",
+	"welcomePageHeadingMsg":"Welcome to the cashback service LetyShops",
+	"closeWebConfirmTxt":"Would you like to leave the page?",
+	"textInputError": "You must provide a valid email to continue",
+	"textForgotPassword": "Forgot password"
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Mobile Test Suite" parallel="tests" thread-count="5">
+	<listeners>
+		<listener class-name="com.feuji.listeners.TestListener" />
+		<listener
+			class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
+	</listeners>
+	<test verbose="2" name="AndroidTest">
+		<parameter name="platform" value="android" />
+		<classes>
+			<class name="com.feuji.test.LetyShopsTest">
+				<methods>
+					<include name="welcomePage" />
+					<include name="loginWithoutCredentials" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
