@@ -22,11 +22,13 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@latest
+      - run: google-chrome --version
 
-      - name: Set up Microsoft Edge
-        uses: microsoft-edge/msedge-action@v1
+      - name: Set up Edge
+        uses: browser-actions/setup-edge@latest
+      - run: msedge --version
         
       - name: Cache Maven packages
         uses: actions/cache@v3
