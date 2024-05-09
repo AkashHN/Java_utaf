@@ -24,7 +24,7 @@ jobs:
 
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@latest
-      - run: google-chrome --version
+      - run: chrome --version
 
       - name: Set up Edge
         uses: browser-actions/setup-edge@latest
