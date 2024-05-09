@@ -13,6 +13,14 @@
 				<methods>
 					<include name="welcomePage" />
 					<include name="loginWithoutCredentials" />
+					<include name="validateForgotPassword" />
+					<include name="invalidLoginWithIncorrectPassword" />
+					<include name="testLoginWithValidCredentials" />
+					<!-- <include name="selectLanguage" />-->
+					<include name="checkNotification" />
+					<include name="searchItem" />
+					<include name="storePage" />
+					<include name="testProfile" />
 				</methods>
 			</class>
 		</classes>

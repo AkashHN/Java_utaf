@@ -13,8 +13,9 @@ import com.feuji.mobile.page.LoginPage;
 import com.feuji.mobile.page.WelcomePage;
 
 /**
- * The LetyShopsTest class contains test cases for the LetyShops mobile application. It extends the Base class
- * for test setup and common functionalities.
+ * The LetyShopsTest class contains test cases for the LetyShops mobile
+ * application. It extends the Base class for test setup and common
+ * functionalities.
  */
 public class LetyShopsTest extends Base {
 	private LoginPage loginPage;
@@ -25,9 +26,9 @@ public class LetyShopsTest extends Base {
 	private AccountPage accountPage;
 
 	/**
-     * Test case to verify the Welcome page of the LetyShops application.
-     * It includes assertions for the title, logo, welcome text, and register button.
-     */
+	 * Test case to verify the Welcome page of the LetyShops application. It
+	 * includes assertions for the title, logo, welcome text, and register button.
+	 */
 	@Test(groups = { "Android" })
 	public void welcomePage() {
 		// Assertion 1
@@ -40,7 +41,7 @@ public class LetyShopsTest extends Base {
 		// Assertion 2
 		extentTest.get().log(Status.INFO, "Verifying if LettyShops logo is displayed");
 		boolean isLogoDisplayed = welcomePage.getLogo().isDisplayed();
-		softAssert.assertFalse(isLogoDisplayed, "LettyShops logo should be displayed");
+		softAssert.assertTrue(isLogoDisplayed, "LettyShops logo should be displayed");
 		extentTest.get().log(isLogoDisplayed ? Status.PASS : Status.FAIL,
 				isLogoDisplayed ? "LettyShops logo is displayed" : "LettyShops logo is not displayed");
 		// Assertion 3
@@ -63,8 +64,8 @@ public class LetyShopsTest extends Base {
 	}
 
 	/**
-	 * This test case is Implemented with the logIn page Using the
-	 * correct user credentials(userName & Password) for the successful logIn
+	 * This test case is Implemented with the logIn page Using the correct user
+	 * credentials(userName & Password) for the successful logIn
 	 */
 	@Test(groups = { "Android" })
 	public void loginWithoutCredentials() {
@@ -81,9 +82,9 @@ public class LetyShopsTest extends Base {
 		softAssert.assertAll();
 	}
 
-	 /**
-     * Test case to validate the Forgot Password functionality.
-     */
+	/**
+	 * Test case to validate the Forgot Password functionality.
+	 */
 	@Test(groups = { "Android" })
 	public void validateForgotPassword() {
 		String forgotPassword = mobileData.getString("textForgotPassword");
@@ -98,13 +99,13 @@ public class LetyShopsTest extends Base {
 		softAssert.assertTrue(isTitleDisplayed, "Password recovery title should be displayed");
 		extentTest.get().log(isTitleDisplayed ? Status.PASS : Status.FAIL,
 				isTitleDisplayed ? "Password recovery title is displayed" : "Password recovery title is not displayed");
-//			loginPage.clickNavigateButton();
+		loginPage.clickNavigateButton();
 		softAssert.assertAll();
 	}
 //	
 	/**
-     * Test case to simulate logging in with valid credentials.
-     */
+	 * Test case to simulate logging in with valid credentials.
+	 */
 //	@Test(groups = { "Android" })
 //	public void invalidLoginWithIncorrectPassword() {
 //			String userName = mobileData.getString("correctUserName");
@@ -175,8 +176,8 @@ public class LetyShopsTest extends Base {
 	}
 
 	/**
-     * Test case to select the application language.
-     */
+	 * Test case to select the application language.
+	 */
 	@Test(groups = { "Android" })
 	public void checkNotification() {
 		homePage = PageInstanceFactory.getInstance(HomePage.class);
@@ -194,8 +195,8 @@ public class LetyShopsTest extends Base {
 	}
 
 	/**
-     * Test case to search for an item in the application.
-     */
+	 * Test case to search for an item in the application.
+	 */
 	@Test(groups = { "Android" })
 	public void searchItem() {
 		homePage.searchItem(mobileData.getString("searchItem"));
@@ -204,8 +205,8 @@ public class LetyShopsTest extends Base {
 	}
 
 	/**
-     * Test case to navigate to a store page and perform various assertions.
-     */
+	 * Test case to navigate to a store page and perform various assertions.
+	 */
 	@Test(groups = { "Android" })
 	public void storePage() {
 		goToStorePage = PageInstanceFactory.getInstance(GoToStorePage.class);
@@ -253,9 +254,9 @@ public class LetyShopsTest extends Base {
 		softAssert.assertAll();
 	}
 
-	 /**
-     * Test case to validate the user profile functionality.
-     */
+	/**
+	 * Test case to validate the user profile functionality.
+	 */
 	@Test(groups = { "Android" })
 	public void testProfile() {
 		accountPage = PageInstanceFactory.getInstance(AccountPage.class);
