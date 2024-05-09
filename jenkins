@@ -5,11 +5,6 @@ pipeline {
         jdk 'Jdk' // Make sure 'jdk' is the name of your JDK installation in Jenkins
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main',credentialsId:"githubid", url: 'https://github.com/Feuji-QA/selenium_java_UTAF.git'
-            }
-        }
         stage('Build') {
             steps {
                 script {
