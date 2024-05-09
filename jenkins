@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    tools {
+        maven 'MAVEN' // Make sure 'Maven' is the name of your Maven installation in Jenkins
+        jdk 'Jdk' // Make sure 'jdk' is the name of your JDK installation in Jenkins
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',credentialsId:"githubid", url: 'https://github.com/Feuji-QA/selenium_java_UTAF.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                   bat "mvn clean install"
+                }
+            }
+        }
+    }
+    post {
+        always {
+            // Archive Maven Surefire reports
+            archiveArtifacts artifacts: 'reports/*.html', allowEmptyArchive: true
+        }
+    }
+}
