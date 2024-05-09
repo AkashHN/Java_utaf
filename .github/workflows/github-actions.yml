@@ -29,7 +29,10 @@ jobs:
       - name: Set up Edge
         uses: browser-actions/setup-edge@latest
       - run: msedge --version
-        
+
+      - name: Install and Run Appium Server
+        uses: moatazeldebsy/appium-server-gitHub-action@V1.0.4
+         
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
