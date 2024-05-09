@@ -11,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -62,7 +63,11 @@ public class Base {
 		try {
 			if (browser != null) {
 				if (browser.equalsIgnoreCase("chrome")) {
-					driver = new ChromeDriver();
+					ChromeOptions options = new ChromeOptions();
+					options.addArguments("--no-sandbox");
+					options.addArguments("--disable-dev-shm-usage");
+					options.addArguments("--headless");
+					driver = new ChromeDriver(options);
 					WebDriverContext.setDriver(driver);
 				} else if (browser.equalsIgnoreCase("edge")) {
 					driver = new EdgeDriver();
