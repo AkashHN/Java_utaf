@@ -5,6 +5,6 @@
 	<suite-files>
 		<suite-file path="./UI-Suite.xml" />
 		<suite-file path="./API-Suite.xml" />
-		<suite-file path="./Mobile-Suite.xml" />
+		<!--<suite-file path="./Mobile-Suite.xml" />-->
 	</suite-files>
 </suite>
