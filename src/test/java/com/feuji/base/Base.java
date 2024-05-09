@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -68,9 +69,14 @@ public class Base {
 					options.addArguments("--disable-dev-shm-usage");
 					options.addArguments("--headless");
 					driver = new ChromeDriver(options);
+					driver = new ChromeDriver();
 					WebDriverContext.setDriver(driver);
 				} else if (browser.equalsIgnoreCase("edge")) {
-					driver = new EdgeDriver();
+					EdgeOptions options = new EdgeOptions();
+					options.addArguments("--no-sandbox");
+					options.addArguments("--disable-dev-shm-usage");
+					options.addArguments("--headless");
+					driver = new EdgeDriver(options);
 					WebDriverContext.setDriver(driver);
 				}
 				WebDriverContext.getDriver().manage().window().maximize();
