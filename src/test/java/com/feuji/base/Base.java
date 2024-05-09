@@ -69,7 +69,6 @@ public class Base {
 					options.addArguments("--disable-dev-shm-usage");
 					options.addArguments("--headless");
 					driver = new ChromeDriver(options);
-					driver = new ChromeDriver();
 					WebDriverContext.setDriver(driver);
 				} else if (browser.equalsIgnoreCase("edge")) {
 					EdgeOptions options = new EdgeOptions();
