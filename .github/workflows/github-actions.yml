@@ -28,11 +28,9 @@ jobs:
 
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@latest
-      - run: chrome --version
 
       - name: Set up Edge
         uses: browser-actions/setup-edge@latest
-      - run: msedge --version
       
       - name: Install and Run Appium Server
         run: |
