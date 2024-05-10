@@ -43,13 +43,13 @@ jobs:
         uses: android-actions/setup-android@v2
       
       - name: Create Emulator
-        uses: react-native-community/android-emulator-runner@v1
+        uses: android/emulator-runner@v1
         with:
-          image: system-images;android-30;google_apis;x86_64
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
-          script: |
-            adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 3; done'
-            adb shell input keyevent 82
+         image: system-images;android-30;google_apis;x86_64
+         emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+         script: |
+           adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 3; done'
+           adb shell input keyevent 82
        
       - name: Run tests with Maven
         run: mvn clean test
