@@ -41,7 +41,8 @@ jobs:
 
       - name: Emulator Set-up
         uses: reactivecircus/android-emulator-runner@v2.30.1
-          
+        with:
+          api-level: 29
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
