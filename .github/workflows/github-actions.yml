@@ -11,7 +11,11 @@ on:
 jobs:
   UI_Test:
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: macos-latest # the machine type
+    strategy: # we are using strategy if we need to run on parallel with different devices and version
+      matrix:
+        api-level: [30] #Google api level for example [25,23,28] 
+        target: [default]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,30 +33,30 @@ jobs:
       - name: Set up Edge
         uses: browser-actions/setup-edge@latest
       - run: msedge --version
-
-      # - name: Install and Run Appium Server
-      #   uses: moatazeldebsy/appium-server-gitHub-action@V1.0.6
+      
+      - name: Install and Run Appium Server
+        run: |
+         npm install -g appium@v1.20.2
+            appium -v
+            appium &>/dev/null &
 
       # - name: Enable KVM
       #   run: |
       #     echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
       #     sudo udevadm control --reload-rules
       #     sudo udevadm trigger --name-match=kvm
-
+      
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
       
-      - name: Create Emulator
-        uses: android/emulator-runner@v1
+      - name: Run Appium Tests
+        uses: reactivecircus/android-emulator-runner@v1
         with:
-         image: system-images;android-30;google_apis;x86_64
-         emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
-         script: |
-           adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 3; done'
-           adb shell input keyevent 82
-       
-      - name: Run tests with Maven
-        run: mvn clean test
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86_64
+          profile: Nexus 6
+          script: mvn clean test
          
       - name: Upload Test Reports
         if: always()
@@ -60,4 +64,3 @@ jobs:
         with:
           name: test-reports
           path: reports/
- 
