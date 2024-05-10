@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         api-level: [29, 34, 34.2.13.0]
-        target: [default, google_apis]
+        target: [playstore, google_apis]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
