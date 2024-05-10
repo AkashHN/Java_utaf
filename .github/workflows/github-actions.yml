@@ -40,9 +40,9 @@ jobs:
           sudo udevadm trigger --name-match=kvm
 
       - name: Emulator Set-up
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@v2.30.1
         with:
-          api-level: 34
+          api-level: 34.2.13.0
           script: ./gradlew connectedCheck
           
       - name: Cache Maven packages
