@@ -42,8 +42,7 @@ jobs:
       - name: Emulator Set-up
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 34.2.13.0
-          script: ./gradlew connectedCheck
+          api-level: 29
           
       - name: Cache Maven packages
         uses: actions/cache@v3
